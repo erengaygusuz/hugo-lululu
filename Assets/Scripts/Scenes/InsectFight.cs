@@ -1,19 +1,18 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace FTRGames.HugoLuLuLu
+namespace FTRGames.HugoLuLuLu.Scenes
 {
     public class InsectFight : MonoBehaviour
     {
         [SerializeField]
-        private Animator inspectFightAnim;
-        public static Animator inspectFightAnimStatic;
+        private Animator insectFightAnim;
+        public static Animator insectFightAnimStatic;
 
         [SerializeField]
-        private List<AudioSource> inspectFightsSOs;
-        public static List<AudioSource> inspectFightsSOsStatic;
+        private List<AudioSource> insectFightsSOs;
+        public static List<AudioSource> insectFightsSOsStatic;
 
         public static int computerInsectIndex;
         public static int playerInsectIndex;
@@ -28,9 +27,29 @@ namespace FTRGames.HugoLuLuLu
 
         private void Start()
         {
-            inspectFightAnimStatic = inspectFightAnim;
-            inspectFightsSOsStatic = inspectFightsSOs;
+            Initialization();
 
+            CheckBeginFightAnim();
+        }
+
+        private void Initialization()
+        {
+            InsectFightAnimInit();
+            InsectFightSOsInit();
+        }
+
+        private void InsectFightAnimInit()
+        {
+            insectFightAnimStatic = insectFightAnim;
+        }
+
+        private void InsectFightSOsInit()
+        {
+            insectFightsSOsStatic = insectFightsSOs;
+        }
+
+        private void CheckBeginFightAnim()
+        {
             if (isBeginFightAnimPlayed)
             {
                 hugoSO.enabled = false;
@@ -48,21 +67,21 @@ namespace FTRGames.HugoLuLuLu
 
         public static void PlayActiveFightAnimation()
         {
-            inspectFightAnimStatic.Play(computerInsectIndex + "-" + playerInsectIndex);
+            insectFightAnimStatic.Play(computerInsectIndex + "-" + playerInsectIndex);
         }
 
         public static AudioSource GetActiveFightSO()
         {
-            for (int i = 0; i < inspectFightsSOsStatic.Count; i++)
+            for (int i = 0; i < insectFightsSOsStatic.Count; i++)
             {
-                var compIndex = Convert.ToInt32(inspectFightsSOsStatic[i].name.Split('-')[0]);
-                var playIndex = Convert.ToInt32(inspectFightsSOsStatic[i].name.Split('-')[1]);
+                var compIndex = Convert.ToInt32(insectFightsSOsStatic[i].name.Split('-')[0]);
+                var playIndex = Convert.ToInt32(insectFightsSOsStatic[i].name.Split('-')[1]);
 
                 if ((compIndex == computerInsectIndex || compIndex == playerInsectIndex) && (playIndex == playerInsectIndex || playIndex == computerInsectIndex))
                 {
-                    inspectFightsSOsStatic[i].enabled = true;
+                    insectFightsSOsStatic[i].enabled = true;
 
-                    return inspectFightsSOsStatic[i];
+                    return insectFightsSOsStatic[i];
                 }
             }
 

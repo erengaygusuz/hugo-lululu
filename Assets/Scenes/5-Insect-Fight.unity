@@ -188,7 +188,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 120455468}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.77918464, y: 0.73079836, z: 193.71046}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -206,8 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd80dcfb93769bb4aa119a5f8972b42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inspectFightAnim: {fileID: 1025227067}
-  inspectFightsSOs:
+  insectFightAnim: {fileID: 1025227067}
+  insectFightsSOs:
   - {fileID: 1340250691}
   - {fileID: 688537814}
   - {fileID: 1615486089}
@@ -963,7 +963,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767363768}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7985628, y: -0.019493014, z: 172.27629}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 486541790}

@@ -1,9 +1,8 @@
-using FTRGames.HugoLuLuLu.Scenes;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace FTRGames.HugoLuLuLu
+namespace FTRGames.HugoLuLuLu.Scenes
 {
     public class HugoResult : MonoBehaviour
     {
@@ -46,8 +45,8 @@ namespace FTRGames.HugoLuLuLu
             InsectComparison.fightInfos.Clear();
             InsectComparison.isFernandoSoundPlayed = false;
 
-            InsectFight.inspectFightAnimStatic = null;
-            InsectFight.inspectFightsSOsStatic = null;
+            InsectFight.insectFightAnimStatic = null;
+            InsectFight.insectFightsSOsStatic = null;
             InsectFight.computerInsectIndex = 0;
             InsectFight.playerInsectIndex = 0;
             InsectFight.isBeginFightAnimPlayed = false;
