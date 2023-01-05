@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!74 &7400000
+AnimationClip:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ants-throw-2
+  serializedVersion: 6
+  m_Legacy: 0
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves: []
+  m_CompressedRotationCurves: []
+  m_EulerCurves: []
+  m_PositionCurves: []
+  m_ScaleCurves: []
+  m_FloatCurves: []
+  m_PPtrCurves:
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 98dd5aba2d7d57044a76d1829ebd01dc, type: 3}
+    - time: 0.083333336
+      value: {fileID: 21300000, guid: af0a8a407e36841429470725a297ffa5, type: 3}
+    - time: 0.15
+      value: {fileID: 21300000, guid: 9a99b91b42f579f4bbd5d33740c1ecdd, type: 3}
+    - time: 0.23333333
+      value: {fileID: 21300000, guid: 2156e4ac864055541bb3b75799be0c5b, type: 3}
+    - time: 0.3
+      value: {fileID: 21300000, guid: 9ea17a214e1628d4298e34ab2aa0ca25, type: 3}
+    - time: 0.38333333
+      value: {fileID: 21300000, guid: 5dda701b131862949b0e8509ce3ae712, type: 3}
+    - time: 0.46666667
+      value: {fileID: 21300000, guid: 846cb30752b25b54eac97b8dd2e2e5b9, type: 3}
+    - time: 0.53333336
+      value: {fileID: 21300000, guid: 6478e2366e95de5489a7084dc25c3156, type: 3}
+    - time: 0.6166667
+      value: {fileID: 21300000, guid: 3ab342f1fc5477642b6ab6b76f3eeb40, type: 3}
+    - time: 0.7
+      value: {fileID: 21300000, guid: 68617612cd183ed4aab1e800a506846e, type: 3}
+    - time: 0.76666665
+      value: {fileID: 21300000, guid: 75e3b2444281dbd4ea343dddf3fb6482, type: 3}
+    - time: 0.85
+      value: {fileID: 21300000, guid: 23695dae8921e564b8593d104fcad410, type: 3}
+    - time: 0.9166667
+      value: {fileID: 21300000, guid: 237a2c638bfab7e4798357ac144dc938, type: 3}
+    - time: 1
+      value: {fileID: 21300000, guid: 5a56a0de2ffad444592742acfab4b24d, type: 3}
+    attribute: m_Sprite
+    path: 
+    classID: 212
+    script: {fileID: 0}
+  m_SampleRate: 60
+  m_WrapMode: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings:
+    - serializedVersion: 2
+      path: 0
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    pptrCurveMapping:
+    - {fileID: 21300000, guid: 98dd5aba2d7d57044a76d1829ebd01dc, type: 3}
+    - {fileID: 21300000, guid: af0a8a407e36841429470725a297ffa5, type: 3}
+    - {fileID: 21300000, guid: 9a99b91b42f579f4bbd5d33740c1ecdd, type: 3}
+    - {fileID: 21300000, guid: 2156e4ac864055541bb3b75799be0c5b, type: 3}
+    - {fileID: 21300000, guid: 9ea17a214e1628d4298e34ab2aa0ca25, type: 3}
+    - {fileID: 21300000, guid: 5dda701b131862949b0e8509ce3ae712, type: 3}
+    - {fileID: 21300000, guid: 846cb30752b25b54eac97b8dd2e2e5b9, type: 3}
+    - {fileID: 21300000, guid: 6478e2366e95de5489a7084dc25c3156, type: 3}
+    - {fileID: 21300000, guid: 3ab342f1fc5477642b6ab6b76f3eeb40, type: 3}
+    - {fileID: 21300000, guid: 68617612cd183ed4aab1e800a506846e, type: 3}
+    - {fileID: 21300000, guid: 75e3b2444281dbd4ea343dddf3fb6482, type: 3}
+    - {fileID: 21300000, guid: 23695dae8921e564b8593d104fcad410, type: 3}
+    - {fileID: 21300000, guid: 237a2c638bfab7e4798357ac144dc938, type: 3}
+    - {fileID: 21300000, guid: 5a56a0de2ffad444592742acfab4b24d, type: 3}
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_AdditiveReferencePoseClip: {fileID: 0}
+    m_AdditiveReferencePoseTime: 0
+    m_StartTime: 0
+    m_StopTime: 1.0166667
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_HasAdditiveReferencePose: 0
+    m_LoopTime: 0
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves: []
+  m_EulerEditorCurves: []
+  m_HasGenericRootTransform: 0
+  m_HasMotionFloatCurves: 0
+  m_Events:
+  - time: 0.38333333
+    functionName: DeactivateSprites
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.7
+    functionName: ActivateSprites
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1
+    functionName: LoadNextScene
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
