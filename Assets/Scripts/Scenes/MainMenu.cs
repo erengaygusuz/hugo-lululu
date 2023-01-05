@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace FTRGames.HugoLuLuLu
+namespace FTRGames.HugoLuLuLu.Scenes
 {
     public class MainMenu : MonoBehaviour
     {

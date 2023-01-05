@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace FTRGames.HugoLuLuLu
+namespace FTRGames.HugoLuLuLu.Scenes
 {
     public class Intro : MonoBehaviour
     {
@@ -15,21 +15,27 @@ namespace FTRGames.HugoLuLuLu
         [SerializeField]
         private List<AudioSource> ambienceSOs;
 
-        private bool isHugoASEnabled;
-
         private void Update()
+        {
+            PlayingHugoSoundAfterFernandoSound();
+
+            StopAllAmbienceSoundsAndOpenNextScene();
+        }
+
+        private void PlayingHugoSoundAfterFernandoSound()
         {
             if (!fernandoSO.isPlaying)
             {
-                if (!isHugoASEnabled)
+                if (!hugoSO.enabled)
                 {
                     hugoSO.enabled = true;
-
-                    isHugoASEnabled = true;
                 }
             }
+        }
 
-            if (isHugoASEnabled && !hugoSO.isPlaying)
+        private void StopAllAmbienceSoundsAndOpenNextScene()
+        {
+            if (hugoSO.enabled == true && !hugoSO.isPlaying)
             {
                 for (int i = 0; i < ambienceSOs.Count; i++)
                 {

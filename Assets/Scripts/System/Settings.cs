@@ -2,45 +2,48 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Settings : MonoBehaviour
+namespace FTRGames.HugoLuLuLu.System
 {
-    [SerializeField]
-    private Slider soundSlider;
-
-    [SerializeField]
-    private TextMeshProUGUI sliderValueLabel;
-
-    private void Awake()
+    public class Settings : MonoBehaviour
     {
-        DontDestroyOnLoad(this);
-    }
+        [SerializeField]
+        private Slider soundSlider;
 
-    private void Start()
-    {
-        GettingSoundLevelValue();
-    }
+        [SerializeField]
+        private TextMeshProUGUI sliderValueLabel;
 
-    private void GettingSoundLevelValue()
-    {
-        if (PlayerPrefs.HasKey("HugoLuLuLu-SoundLevel"))
+        private void Awake()
         {
-            soundSlider.value = PlayerPrefs.GetFloat("HugoLuLuLu-SoundLevel");
+            DontDestroyOnLoad(this);
         }
 
-        else
+        private void Start()
         {
-            soundSlider.value = AudioListener.volume;
+            GettingSoundLevelValue();
         }
 
-        sliderValueLabel.text = Mathf.RoundToInt(soundSlider.value * 100).ToString();
-    }
+        private void GettingSoundLevelValue()
+        {
+            if (PlayerPrefs.HasKey("HugoLuLuLu-SoundLevel"))
+            {
+                soundSlider.value = PlayerPrefs.GetFloat("HugoLuLuLu-SoundLevel");
+            }
 
-    public void ChangeAudioLevel(Slider slider)
-    {
-        AudioListener.volume = slider.value;
-        sliderValueLabel.text = Mathf.RoundToInt(slider.value * 100).ToString();
+            else
+            {
+                soundSlider.value = AudioListener.volume;
+            }
 
-        PlayerPrefs.SetFloat("HugoLuLuLu-SoundLevel", slider.value);
-        PlayerPrefs.Save();
+            sliderValueLabel.text = Mathf.RoundToInt(soundSlider.value * 100).ToString();
+        }
+
+        public void ChangeAudioLevel(Slider slider)
+        {
+            AudioListener.volume = slider.value;
+            sliderValueLabel.text = Mathf.RoundToInt(slider.value * 100).ToString();
+
+            PlayerPrefs.SetFloat("HugoLuLuLu-SoundLevel", slider.value);
+            PlayerPrefs.Save();
+        }
     }
 }
