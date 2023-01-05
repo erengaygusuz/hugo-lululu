@@ -5281,7 +5281,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1512972131}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2812759, y: -0.23890814, z: 211.37027}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5313,7 +5313,7 @@ MonoBehaviour:
   - {fileID: 953464531}
   - {fileID: 1321819268}
   fernandoSO: {fileID: 952650226}
-  referenceInspectsComputer:
+  referenceInsectsComputer:
   - Insects:
     - {fileID: 1496478373}
     - {fileID: 254276205}
@@ -5344,7 +5344,7 @@ MonoBehaviour:
     - {fileID: 1655369494}
     - {fileID: 1521572418}
     - {fileID: 1830939556}
-  referenceInspectsPlayer:
+  referenceInsectsPlayer:
   - Insects:
     - {fileID: 1919783476}
     - {fileID: 1301493873}
@@ -7154,7 +7154,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2022236707}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7985628, y: -0.019493014, z: 172.27629}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 952650227}

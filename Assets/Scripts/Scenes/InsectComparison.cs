@@ -1,9 +1,8 @@
-using FTRGames.HugoLuLuLu.Scenes;
-using System;
+using FTRGames.HugoLuLuLu.System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace FTRGames.HugoLuLuLu
+namespace FTRGames.HugoLuLuLu.Scenes
 {
     public class InsectComparison : MonoBehaviour
     {
@@ -28,24 +27,36 @@ namespace FTRGames.HugoLuLuLu
 
         public static bool isFernandoSoundPlayed;
 
-        [Serializable]
-        public class ReferenceInsect
-        {
-            public List<GameObject> Insects;
-        }
-
-        public List<ReferenceInsect> referenceInspectsComputer = new List<ReferenceInsect>();
-        public List<ReferenceInsect> referenceInspectsPlayer = new List<ReferenceInsect>();
+        public List<ReferenceInsect> referenceInsectsComputer = new List<ReferenceInsect>();
+        public List<ReferenceInsect> referenceInsectsPlayer = new List<ReferenceInsect>();
 
         private void Start()
         {
-            if (isFernandoSoundPlayed)
-            {
-                isFernandoSoundPlayed = false;
+            Initialization();
 
-                fernandoSO.Play();
-            }
+            PlayFernandosound();
 
+            FillComputerPositionListWithReferenceValues();
+
+            FillPlayerPositionListWithReferenceValues();
+
+            SettingComputerInsectsGameObjectsPos();
+
+            SettingPlayerInsectsGameObjectsPos();
+
+            PlayLeafAnim();
+        }
+
+        private void Initialization()
+        {
+            FightInfoInit();
+            LeafAnimInit();
+            ComputerVectorPosInit();
+            PlayerVectorPosInit();
+        }
+
+        private void FightInfoInit()
+        {
             fightInfos = new List<FightInfo>()
             {
                 new FightInfo
@@ -149,52 +160,81 @@ namespace FTRGames.HugoLuLuLu
                     Winner = 4
                 }
             };
+        }
 
+        private void LeafAnimInit()
+        {
             leafAnimStatic = leafAnim;
+        }
 
+        private void ComputerVectorPosInit()
+        {
             vectorPositionsOfComputerInsects = new List<List<VectorPos>>();
+        }
 
-            for (int i = 0; i < referenceInspectsComputer.Count; i++)
+        private void PlayerVectorPosInit()
+        {
+            vectorPositionsOfPlayerInsects = new List<List<VectorPos>>();
+        }
+
+        private void PlayFernandosound()
+        {
+            if (isFernandoSoundPlayed)
+            {
+                isFernandoSoundPlayed = false;
+
+                fernandoSO.Play();
+            }
+        }
+
+        private void FillComputerPositionListWithReferenceValues()
+        {
+            for (int i = 0; i < referenceInsectsComputer.Count; i++)
             {
                 List<VectorPos> tempList = new List<VectorPos>();
 
-                for (int j = 0; j < referenceInspectsComputer[i].Insects.Count; j++)
+                for (int j = 0; j < referenceInsectsComputer[i].Insects.Count; j++)
                 {
-                    tempList.Add(new VectorPos { X = referenceInspectsComputer[i].Insects[j].transform.localPosition.x, Y = referenceInspectsComputer[i].Insects[j].transform.localPosition.y });
+                    tempList.Add(new VectorPos { X = referenceInsectsComputer[i].Insects[j].transform.localPosition.x, Y = referenceInsectsComputer[i].Insects[j].transform.localPosition.y });
                 }
 
                 vectorPositionsOfComputerInsects.Add(tempList);
             }
+        }
 
-            vectorPositionsOfPlayerInsects = new List<List<VectorPos>>();
-
-            for (int i = 0; i < referenceInspectsPlayer.Count; i++)
+        private void FillPlayerPositionListWithReferenceValues()
+        {
+            for (int i = 0; i < referenceInsectsPlayer.Count; i++)
             {
                 List<VectorPos> tempList = new List<VectorPos>();
 
-                for (int j = 0; j < referenceInspectsPlayer[i].Insects.Count; j++)
+                for (int j = 0; j < referenceInsectsPlayer[i].Insects.Count; j++)
                 {
-                    tempList.Add(new VectorPos { X = referenceInspectsPlayer[i].Insects[j].transform.localPosition.x, Y = referenceInspectsPlayer[i].Insects[j].transform.localPosition.y });
+                    tempList.Add(new VectorPos { X = referenceInsectsPlayer[i].Insects[j].transform.localPosition.x, Y = referenceInsectsPlayer[i].Insects[j].transform.localPosition.y });
                 }
 
                 vectorPositionsOfPlayerInsects.Add(tempList);
             }
+        }
 
+        private void SettingComputerInsectsGameObjectsPos()
+        {
             for (int i = 0; i < vectorPositionsOfComputerInsects.Count; i++)
             {
                 var vectorPos = vectorPositionsOfComputerInsects[SeeingInsect.computerInsectOrderList[i]][i];
 
-                computerInsects[SeeingInsect.computerInsectOrderList[i]].transform.localPosition = new Vector3(ConvertedX(vectorPos.X), ConvertedY(vectorPos.Y), computerInsects[SeeingInsect.computerInsectOrderList[i]].transform.localPosition.z);
+                computerInsects[SeeingInsect.computerInsectOrderList[i]].transform.localPosition = new Vector3(PositionConverter.ConvertedX(vectorPos.X), PositionConverter.ConvertedY(vectorPos.Y), computerInsects[SeeingInsect.computerInsectOrderList[i]].transform.localPosition.z);
             }
+        }
 
+        private void SettingPlayerInsectsGameObjectsPos()
+        {
             for (int i = 0; i < vectorPositionsOfPlayerInsects.Count; i++)
             {
                 var vectorPos = vectorPositionsOfPlayerInsects[ThrowingInsect.playerInsectOrderList[i]][i];
 
-                playerInsects[ThrowingInsect.playerInsectOrderList[i]].transform.localPosition = new Vector3(ConvertedX(vectorPos.X), ConvertedY(vectorPos.Y), playerInsects[ThrowingInsect.playerInsectOrderList[i]].transform.localPosition.z);
+                playerInsects[ThrowingInsect.playerInsectOrderList[i]].transform.localPosition = new Vector3(PositionConverter.ConvertedX(vectorPos.X), PositionConverter.ConvertedY(vectorPos.Y), playerInsects[ThrowingInsect.playerInsectOrderList[i]].transform.localPosition.z);
             }
-
-            PlayLeafAnim();
         }
 
         public static void PlayLeafAnim()
@@ -205,16 +245,6 @@ namespace FTRGames.HugoLuLuLu
             InsectFight.playerInsectIndex = ThrowingInsect.playerInsectOrderList[activeFightIndex];
 
             leafAnimStatic.Play("Leaf" + (activeFightIndex + 1));
-        }
-
-        private float ConvertedX(float x)
-        {
-            return (Screen.width * x) / 1920;
-        }
-
-        private float ConvertedY(float y)
-        {
-            return (Screen.height * y) / 1080;
         }
     }
 

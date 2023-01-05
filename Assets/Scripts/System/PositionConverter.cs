@@ -8,5 +8,10 @@ namespace FTRGames.HugoLuLuLu.System
         {
             return (Screen.width * x) / 1920;
         }
+
+        public static float ConvertedY(float y)
+        {
+            return (Screen.height * y) / 1080;
+        }
     }
 }
