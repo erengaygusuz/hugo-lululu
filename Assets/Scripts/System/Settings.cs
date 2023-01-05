@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,6 +17,11 @@ public class Settings : MonoBehaviour
 
     private void Start()
     {
+        GettingSoundLevelValue();
+    }
+
+    private void GettingSoundLevelValue()
+    {
         if (PlayerPrefs.HasKey("HugoLuLuLu-SoundLevel"))
         {
             soundSlider.value = PlayerPrefs.GetFloat("HugoLuLuLu-SoundLevel");
@@ -28,7 +31,7 @@ public class Settings : MonoBehaviour
         {
             soundSlider.value = AudioListener.volume;
         }
-        
+
         sliderValueLabel.text = Mathf.RoundToInt(soundSlider.value * 100).ToString();
     }
 
