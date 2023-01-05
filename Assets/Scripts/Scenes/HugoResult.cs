@@ -1,4 +1,4 @@
-using System.Collections;
+using FTRGames.HugoLuLuLu.Scenes;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;

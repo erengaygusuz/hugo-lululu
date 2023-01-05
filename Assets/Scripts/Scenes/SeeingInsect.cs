@@ -1,11 +1,11 @@
+using FTRGames.HugoLuLuLu.System;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
-namespace FTRGames.HugoLuLuLu
+namespace FTRGames.HugoLuLuLu.Scenes
 {
     public class SeeingInsect : MonoBehaviour
     {
@@ -16,7 +16,7 @@ namespace FTRGames.HugoLuLuLu
         private List<AudioSource> ambienceSOs;
 
         [SerializeField]
-        private List<GameObject> inspects;
+        private List<GameObject> insects;
 
         private List<List<float>> xPositions;
 
@@ -27,34 +27,54 @@ namespace FTRGames.HugoLuLuLu
         [Serializable]
         public class ReferenceInsect
         {
-            public List<GameObject> ReferenceInspect;
+            public List<GameObject> Insects;
         }
 
-        public List<ReferenceInsect> referenceInspects = new List<ReferenceInsect>();
+        public List<ReferenceInsect> referenceInsects = new List<ReferenceInsect>();
 
         private void Start()
         {
+            Initialization();
+
+            FillingXpositionListWithReferenceValues();
+
+            AssigningPositionValuesToInsectRandomly();
+        }        
+
+        private void Update()
+        {
+            CheckingLeafAnimationAndLoadingNextScene();
+        }
+
+        private void Initialization()
+        {
             xPositions = new List<List<float>>();
 
-            for (int i = 0; i < referenceInspects.Count; i++)
+            computerInsectOrderList.Add(0);
+            computerInsectOrderList.Add(0);
+            computerInsectOrderList.Add(0);
+            computerInsectOrderList.Add(0);
+            computerInsectOrderList.Add(0);
+        }
+
+        private void FillingXpositionListWithReferenceValues()
+        {
+            for (int i = 0; i < referenceInsects.Count; i++)
             {
                 List<float> tempList = new List<float>();
 
-                for (int j = 0; j < referenceInspects[i].ReferenceInspect.Count; j++)
+                for (int j = 0; j < referenceInsects[i].Insects.Count; j++)
                 {
-                    tempList.Add(referenceInspects[i].ReferenceInspect[j].transform.localPosition.x);
+                    tempList.Add(referenceInsects[i].Insects[j].transform.localPosition.x);
                 }
 
                 xPositions.Add(tempList);
             }
+        }
 
-            computerInsectOrderList.Add(0);
-            computerInsectOrderList.Add(0);
-            computerInsectOrderList.Add(0);
-            computerInsectOrderList.Add(0);
-            computerInsectOrderList.Add(0);
-
-            for (int i = 0; i < inspects.Count; i++)
+        private void AssigningPositionValuesToInsectRandomly()
+        {
+            for (int i = 0; i < insects.Count; i++)
             {
                 int selectedIndex = Random.Range(0, xPositions[i].Count);
 
@@ -68,15 +88,15 @@ namespace FTRGames.HugoLuLuLu
 
                 usedOrderList.Add(selectedIndex);
 
-                float selectedPos = ConvertedX(xPositions[i][selectedIndex]);
+                float selectedPos = PositionConverter.ConvertedX(xPositions[i][selectedIndex]);
 
-                computerInsectOrderList[selectedIndex] = inspects[i].transform.GetSiblingIndex();
+                computerInsectOrderList[selectedIndex] = insects[i].transform.GetSiblingIndex();
 
-                inspects[i].transform.localPosition = new Vector2(selectedPos, inspects[i].transform.localPosition.y);
+                insects[i].transform.localPosition = new Vector2(selectedPos, insects[i].transform.localPosition.y);
             }
         }
 
-        private void Update()
+        private void CheckingLeafAnimationAndLoadingNextScene()
         {
             if (frontAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !frontAnimator.IsInTransition(0))
             {
@@ -90,11 +110,6 @@ namespace FTRGames.HugoLuLuLu
 
                 SceneManager.LoadScene("3-Throwing-Insect");
             }
-        }
-
-        private float ConvertedX(float x)
-        {
-            return (Screen.width * x) / 1920;
         }
     }
 }

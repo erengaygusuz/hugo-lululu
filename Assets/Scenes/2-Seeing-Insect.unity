@@ -4319,38 +4319,38 @@ MonoBehaviour:
   - {fileID: 1050841846}
   - {fileID: 299542717}
   - {fileID: 447553919}
-  inspects:
+  insects:
   - {fileID: 1139925224}
   - {fileID: 442549010}
   - {fileID: 366686742}
   - {fileID: 1652206624}
   - {fileID: 1153371884}
-  referenceInspects:
-  - ReferenceInspect:
+  referenceInsects:
+  - Insects:
     - {fileID: 1624485463}
     - {fileID: 1625004908}
     - {fileID: 456596882}
     - {fileID: 1559150645}
     - {fileID: 1140565206}
-  - ReferenceInspect:
+  - Insects:
     - {fileID: 1597607160}
     - {fileID: 1812783345}
     - {fileID: 1558348702}
     - {fileID: 66334545}
     - {fileID: 1579277898}
-  - ReferenceInspect:
+  - Insects:
     - {fileID: 1882115606}
     - {fileID: 52069877}
     - {fileID: 345514464}
     - {fileID: 1100243112}
     - {fileID: 1094310923}
-  - ReferenceInspect:
+  - Insects:
     - {fileID: 1537917604}
     - {fileID: 481313109}
     - {fileID: 851414111}
     - {fileID: 372269144}
     - {fileID: 589550700}
-  - ReferenceInspect:
+  - Insects:
     - {fileID: 114680146}
     - {fileID: 743021681}
     - {fileID: 1498299583}
