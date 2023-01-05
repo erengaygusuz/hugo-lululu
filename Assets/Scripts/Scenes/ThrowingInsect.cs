@@ -1,10 +1,9 @@
-using System;
-using System.Collections;
+using FTRGames.HugoLuLuLu.System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace FTRGames.HugoLuLuLu
+namespace FTRGames.HugoLuLuLu.Scenes
 {
     public class ThrowingInsect : MonoBehaviour
     {
@@ -22,7 +21,7 @@ namespace FTRGames.HugoLuLuLu
         public static int activeInsectOrder = 1;
 
         [SerializeField]
-        private List<GameObject> inspects;
+        private List<GameObject> throwedInsects;
 
         private List<List<float>> xPositions;
 
@@ -31,32 +30,46 @@ namespace FTRGames.HugoLuLuLu
         [SerializeField]
         private List<GameObject> playerInsects;
 
-        [Serializable]
-        public class ReferenceInsect
-        {
-            public List<GameObject> ReferenceInspect;
-        }
-
-        public List<ReferenceInsect> referenceInspects = new List<ReferenceInsect>();
+        public List<ReferenceInsect> referenceInsects = new List<ReferenceInsect>();
 
         private void Start()
         {
+            Initialization();
+
+            AssigningPositionValuesToPlayerInsects();
+
+            PlayingJeanPaulFirstSound();
+
+            FillingXPositionListWithReferenceValues();
+        }
+
+        private void Initialization()
+        {
+            xPositions = new List<List<float>>();
+        }
+
+        private void AssigningPositionValuesToPlayerInsects()
+        {
             for (int i = 0; i < playerInsects.Count; i++)
             {
-                playerInsects[i].transform.localPosition = new Vector2(ConvertedX(playerInsects[i].transform.position.x), playerInsects[i].transform.position.y);
+                playerInsects[i].transform.localPosition = new Vector2(PositionConverter.ConvertedX(playerInsects[i].transform.position.x), playerInsects[i].transform.position.y);
             }
+        }
 
+        private void PlayingJeanPaulFirstSound()
+        {
             jeanPaulSOs[0].Play();
+        }
 
-            xPositions = new List<List<float>>();
-
-            for (int i = 0; i < referenceInspects.Count; i++)
+        private void FillingXPositionListWithReferenceValues()
+        {
+            for (int i = 0; i < referenceInsects.Count; i++)
             {
                 List<float> tempList = new List<float>();
 
-                for (int j = 0; j < referenceInspects[i].ReferenceInspect.Count; j++)
+                for (int j = 0; j < referenceInsects[i].Insects.Count; j++)
                 {
-                    tempList.Add(referenceInspects[i].ReferenceInspect[j].transform.localPosition.x);
+                    tempList.Add(referenceInsects[i].Insects[j].transform.localPosition.x);
                 }
 
                 xPositions.Add(tempList);
@@ -65,7 +78,7 @@ namespace FTRGames.HugoLuLuLu
 
         public void Number1BtnClick()
         {
-            inspects[0].transform.position = new Vector2(ConvertedX(xPositions[0][activeInsectOrder - 1]), inspects[0].transform.position.y);
+            throwedInsects[0].transform.position = new Vector2(PositionConverter.ConvertedX(xPositions[0][activeInsectOrder - 1]), throwedInsects[0].transform.position.y);
 
             playerInsectOrderList.Add(0);
 
@@ -80,7 +93,7 @@ namespace FTRGames.HugoLuLuLu
 
         public void Number2BtnClick()
         {
-            inspects[1].transform.position = new Vector2(ConvertedX(xPositions[1][activeInsectOrder - 1]), inspects[1].transform.position.y);
+            throwedInsects[1].transform.position = new Vector2(PositionConverter.ConvertedX(xPositions[1][activeInsectOrder - 1]), throwedInsects[1].transform.position.y);
 
             playerInsectOrderList.Add(1);
 
@@ -95,7 +108,7 @@ namespace FTRGames.HugoLuLuLu
 
         public void Number3BtnClick()
         {
-            inspects[2].transform.position = new Vector2(ConvertedX(xPositions[2][activeInsectOrder - 1]), inspects[2].transform.position.y);
+            throwedInsects[2].transform.position = new Vector2(PositionConverter.ConvertedX(xPositions[2][activeInsectOrder - 1]), throwedInsects[2].transform.position.y);
 
             playerInsectOrderList.Add(2);
 
@@ -110,7 +123,7 @@ namespace FTRGames.HugoLuLuLu
 
         public void Number4BtnClick()
         {
-            inspects[3].transform.position = new Vector2(ConvertedX(xPositions[3][activeInsectOrder - 1]), inspects[3].transform.position.y);
+            throwedInsects[3].transform.position = new Vector2(PositionConverter.ConvertedX(xPositions[3][activeInsectOrder - 1]), throwedInsects[3].transform.position.y);
 
             playerInsectOrderList.Add(3);
 
@@ -125,7 +138,7 @@ namespace FTRGames.HugoLuLuLu
 
         public void Number5BtnClick()
         {
-            inspects[4].transform.position = new Vector2(ConvertedX(xPositions[4][activeInsectOrder - 1]), inspects[4].transform.position.y);
+            throwedInsects[4].transform.position = new Vector2(PositionConverter.ConvertedX(xPositions[4][activeInsectOrder - 1]), throwedInsects[4].transform.position.y);
 
             playerInsectOrderList.Add(4);
 
@@ -141,11 +154,6 @@ namespace FTRGames.HugoLuLuLu
         private void RunAnimation(Animator anim, string animVarName, int index)
         {
             anim.SetBool(animVarName + index.ToString(), true);
-        }
-
-        private float ConvertedX(float x)
-        {
-            return (Screen.width * x) / 1920;
         }
     }
 }

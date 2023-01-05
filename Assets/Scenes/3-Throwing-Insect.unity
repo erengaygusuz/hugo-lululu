@@ -702,7 +702,7 @@ MonoBehaviour:
   - {fileID: 2134514785}
   - {fileID: 138519015}
   - {fileID: 773361813}
-  inspects:
+  throwedInsects:
   - {fileID: 1112086566}
   - {fileID: 380962509}
   - {fileID: 1242910553}
@@ -714,32 +714,32 @@ MonoBehaviour:
   - {fileID: 776757530}
   - {fileID: 1900983783}
   - {fileID: 1751545668}
-  referenceInspects:
-  - ReferenceInspect:
+  referenceInsects:
+  - Insects:
     - {fileID: 1776066087}
     - {fileID: 2084006944}
     - {fileID: 462148497}
     - {fileID: 1971755883}
     - {fileID: 528315406}
-  - ReferenceInspect:
+  - Insects:
     - {fileID: 951532446}
     - {fileID: 1390280561}
     - {fileID: 1244895309}
     - {fileID: 1145559529}
     - {fileID: 1865872793}
-  - ReferenceInspect:
+  - Insects:
     - {fileID: 949888569}
     - {fileID: 968469019}
     - {fileID: 1812492921}
     - {fileID: 1827478426}
     - {fileID: 488480528}
-  - ReferenceInspect:
+  - Insects:
     - {fileID: 1496249247}
     - {fileID: 717022287}
     - {fileID: 1788786252}
     - {fileID: 1626559242}
     - {fileID: 1932214838}
-  - ReferenceInspect:
+  - Insects:
     - {fileID: 1341972837}
     - {fileID: 551925289}
     - {fileID: 1850371124}

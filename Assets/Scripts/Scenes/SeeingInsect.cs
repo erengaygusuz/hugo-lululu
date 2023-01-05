@@ -1,5 +1,4 @@
 using FTRGames.HugoLuLuLu.System;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -23,12 +22,6 @@ namespace FTRGames.HugoLuLuLu.Scenes
         private List<int> usedOrderList = new List<int>();
 
         public static List<int> computerInsectOrderList = new List<int>();
-
-        [Serializable]
-        public class ReferenceInsect
-        {
-            public List<GameObject> Insects;
-        }
 
         public List<ReferenceInsect> referenceInsects = new List<ReferenceInsect>();
 
