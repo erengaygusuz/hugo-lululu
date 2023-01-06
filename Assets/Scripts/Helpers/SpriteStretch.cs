@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace FTRGames.HugoLuLuLu
+namespace FTRGames.HugoLuLuLu.Helpers
 {
     public class SpriteStretch : MonoBehaviour
     {

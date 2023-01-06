@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace FTRGames.HugoLuLuLu.System
+namespace FTRGames.HugoLuLuLu.Helpers
 {
     public static class PositionConverter
     {

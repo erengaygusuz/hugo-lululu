@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace FTRGames.HugoLuLuLu.System
+namespace FTRGames.HugoLuLuLu.Models
 {
     [Serializable]
     public class ReferenceInsect

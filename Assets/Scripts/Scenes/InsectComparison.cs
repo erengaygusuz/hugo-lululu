@@ -1,4 +1,5 @@
-using FTRGames.HugoLuLuLu.System;
+using FTRGames.HugoLuLuLu.Models;
+using FTRGames.HugoLuLuLu.Helpers;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -246,17 +247,5 @@ namespace FTRGames.HugoLuLuLu.Scenes
 
             leafAnimStatic.Play("Leaf" + (activeFightIndex + 1));
         }
-    }
-
-    public struct VectorPos
-    {
-        public float X { get; set; }
-        public float Y { get; set; }
-    }
-
-    public class FightInfo
-    {
-        public string Type { get; set; }
-        public int Winner { get; set; }
     }
 }

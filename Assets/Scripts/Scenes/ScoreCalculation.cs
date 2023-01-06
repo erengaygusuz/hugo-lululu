@@ -1,4 +1,5 @@
-using FTRGames.HugoLuLuLu.System;
+using FTRGames.HugoLuLuLu.Helpers;
+using FTRGames.HugoLuLuLu.Models;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -258,12 +259,5 @@ namespace FTRGames.HugoLuLuLu.Scenes
         {
             scoreNumber1Anim.Play("1-" + scoreList[0].EarnedPoint);
         }
-    }
-
-    public class ScoreInfo
-    {
-        public int EarnedPoint { get; set; }
-        public int WinnerIndex { get; set; }
-        public int LooserIndex { get; set; }
     }
 }
