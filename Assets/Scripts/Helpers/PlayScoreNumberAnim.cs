@@ -1,3 +1,4 @@
+using FTRGames.HugoLuLuLu.Scenes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

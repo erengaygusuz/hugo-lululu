@@ -1,10 +1,9 @@
-using FTRGames.HugoLuLuLu.Scenes;
-using System;
+using FTRGames.HugoLuLuLu.System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace FTRGames.HugoLuLuLu
+namespace FTRGames.HugoLuLuLu.Scenes
 {
     public class ScoreCalculation : MonoBehaviour
     {
@@ -12,10 +11,10 @@ namespace FTRGames.HugoLuLuLu
         private Animator scoreNumber1Anim;
 
         [SerializeField]
-        private List<GameObject> inspectWinOrEqualFront, inspectWinOrEqualBack;
+        private List<GameObject> insectWinOrEqualFront, insectWinOrEqualBack;
 
         [SerializeField]
-        private List<GameObject> inspectLoseFront, inspectLoseBack;
+        private List<GameObject> insectLoseFront, insectLoseBack;
 
         private List<List<float>> xPosInsectWinOrEqualFront, xPosInsectWinOrEqualBack, xPosInsectLoseFront, xPosInsectLoseBack;
 
@@ -34,12 +33,6 @@ namespace FTRGames.HugoLuLuLu
         public static List<AudioSource> numbersSOsStatic;
         public static AudioSource totalScoreSOStatic;
 
-        [Serializable]
-        public class ReferenceInsect
-        {
-            public List<GameObject> Insects;
-        }
-
         public List<ReferenceInsect> referenceInsectsWinOrEqualFront = new List<ReferenceInsect>();
         public List<ReferenceInsect> referenceInsectsWinOrEqualBack = new List<ReferenceInsect>();
         public List<ReferenceInsect> referenceInsectsLoseFront = new List<ReferenceInsect>();
@@ -47,100 +40,68 @@ namespace FTRGames.HugoLuLuLu
 
         private void Start()
         {
-            numbersSOsStatic = numbersSOs;
-            totalScoreSOStatic = totalScoreSO;
+            Initialization();
 
             CalculateScore();
 
-            totalScore = GetTotalScore();
+            AssignTotalScoreValue();
 
+            FillInsectsWinOrEqualFrontPosListWithReferenceValues();
+
+            FillInsectsWinOrEqualBackPosListWithReferenceValues();
+
+            FillInsectsLoseFrontPosListWithReferenceValues();
+
+            FillInsectsLoseBackPosListWithReferenceValues();
+
+            ActivateInsectsGameObjectAccordingToScoreValues();
+
+            PlayScore1Anim();
+        }
+
+        private void Initialization()
+        {
+            NumbersSoundObjectInit();
+            TotalScoreSoundObjectInit();
+            XPosInsectWinOrEqualFrontInit();
+            XPosInsectWinOrEqualBackInit();
+            XPosInsectLoseFrontInit();
+            XPosInsectLoseBackInit();
+        }
+
+        private void NumbersSoundObjectInit()
+        {
+            numbersSOsStatic = numbersSOs;
+        }
+
+        private void TotalScoreSoundObjectInit()
+        {
+            totalScoreSOStatic = totalScoreSO;
+        }
+
+        private void XPosInsectWinOrEqualFrontInit()
+        {
             xPosInsectWinOrEqualFront = new List<List<float>>();
+        }
 
-            for (int i = 0; i < referenceInsectsWinOrEqualFront.Count; i++)
-            {
-                List<float> tempList = new List<float>();
-
-                for (int j = 0; j < referenceInsectsWinOrEqualFront[i].Insects.Count; j++)
-                {
-                    tempList.Add(referenceInsectsWinOrEqualFront[i].Insects[j].transform.localPosition.x);
-                }
-
-                xPosInsectWinOrEqualFront.Add(tempList);
-            }
-
+        private void XPosInsectWinOrEqualBackInit()
+        {
             xPosInsectWinOrEqualBack = new List<List<float>>();
+        }
 
-            for (int i = 0; i < referenceInsectsWinOrEqualBack.Count; i++)
-            {
-                List<float> tempList = new List<float>();
-
-                for (int j = 0; j < referenceInsectsWinOrEqualBack[i].Insects.Count; j++)
-                {
-                    tempList.Add(referenceInsectsWinOrEqualBack[i].Insects[j].transform.localPosition.x);
-                }
-
-                xPosInsectWinOrEqualBack.Add(tempList);
-            }
-
+        private void XPosInsectLoseFrontInit()
+        {
             xPosInsectLoseFront = new List<List<float>>();
+        }
 
-            for (int i = 0; i < referenceInsectsLoseFront.Count; i++)
-            {
-                List<float> tempList = new List<float>();
-
-                for (int j = 0; j < referenceInsectsLoseFront[i].Insects.Count; j++)
-                {
-                    tempList.Add(referenceInsectsLoseFront[i].Insects[j].transform.localPosition.x);
-                }
-
-                xPosInsectLoseFront.Add(tempList);
-            }
-
+        private void XPosInsectLoseBackInit()
+        {
             xPosInsectLoseBack = new List<List<float>>();
+        }
 
-            for (int i = 0; i < referenceInsectsLoseBack.Count; i++)
-            {
-                List<float> tempList = new List<float>();
-
-                for (int j = 0; j < referenceInsectsLoseBack[i].Insects.Count; j++)
-                {
-                    tempList.Add(referenceInsectsLoseBack[i].Insects[j].transform.localPosition.x);
-                }
-
-                xPosInsectLoseBack.Add(tempList);
-            }
-
-            for (int i = 0; i < scoreList.Count; i++)
-            {
-                if (scoreList[i].EarnedPoint == 0) // lose
-                {
-                    inspectWinOrEqualBack[scoreList[i].WinnerIndex].GetComponent<Renderer>().enabled = true;
-                    inspectLoseFront[scoreList[i].LooserIndex].GetComponent<Renderer>().enabled = true;
-
-                    inspectWinOrEqualBack[scoreList[i].WinnerIndex].transform.localPosition = new Vector2(ConvertedX(xPosInsectWinOrEqualBack[scoreList[i].WinnerIndex][i]), inspectWinOrEqualBack[scoreList[i].WinnerIndex].transform.localPosition.y);
-                    inspectLoseFront[scoreList[i].LooserIndex].transform.localPosition = new Vector2(ConvertedX(xPosInsectLoseFront[scoreList[i].LooserIndex][i]), inspectLoseFront[scoreList[i].LooserIndex].transform.localPosition.y);
-                }
-
-                else if (scoreList[i].EarnedPoint == 2) // winner
-                {
-                    inspectLoseBack[scoreList[i].LooserIndex].GetComponent<Renderer>().enabled = true;
-                    inspectWinOrEqualFront[scoreList[i].WinnerIndex].GetComponent<Renderer>().enabled = true;
-
-                    inspectLoseBack[scoreList[i].LooserIndex].transform.localPosition = new Vector2(ConvertedX(xPosInsectLoseBack[scoreList[i].LooserIndex][i]), inspectLoseBack[scoreList[i].LooserIndex].transform.localPosition.y);
-                    inspectWinOrEqualFront[scoreList[i].WinnerIndex].transform.localPosition = new Vector2(ConvertedX(xPosInsectWinOrEqualFront[scoreList[i].WinnerIndex][i]), inspectWinOrEqualFront[scoreList[i].WinnerIndex].transform.localPosition.y);
-                }
-
-                else // equal
-                {
-                    inspectWinOrEqualBack[scoreList[i].WinnerIndex].GetComponent<Renderer>().enabled = true;
-                    inspectWinOrEqualFront[scoreList[i].WinnerIndex].GetComponent<Renderer>().enabled = true;
-
-                    inspectWinOrEqualBack[scoreList[i].WinnerIndex].transform.localPosition = new Vector2(ConvertedX(xPosInsectWinOrEqualBack[scoreList[i].WinnerIndex][i]), inspectWinOrEqualBack[scoreList[i].WinnerIndex].transform.localPosition.y);
-                    inspectWinOrEqualFront[scoreList[i].WinnerIndex].transform.localPosition = new Vector2(ConvertedX(xPosInsectWinOrEqualFront[scoreList[i].WinnerIndex][i]), inspectWinOrEqualFront[scoreList[i].WinnerIndex].transform.localPosition.y);
-                }
-            }
-
-            scoreNumber1Anim.Play("1-" + scoreList[0].EarnedPoint);
+        private void AssignTotalScoreValue()
+        {
+            totalScore = GetTotalScore();
         }
 
         private void CalculateScore()
@@ -199,10 +160,103 @@ namespace FTRGames.HugoLuLuLu
 
             return total;
         }
-
-        private float ConvertedX(float x)
+    
+        private void FillInsectsWinOrEqualFrontPosListWithReferenceValues()
         {
-            return (Screen.width * x) / 1920;
+            for (int i = 0; i < referenceInsectsWinOrEqualFront.Count; i++)
+            {
+                List<float> tempList = new List<float>();
+
+                for (int j = 0; j < referenceInsectsWinOrEqualFront[i].Insects.Count; j++)
+                {
+                    tempList.Add(referenceInsectsWinOrEqualFront[i].Insects[j].transform.localPosition.x);
+                }
+
+                xPosInsectWinOrEqualFront.Add(tempList);
+            }
+        }
+
+        private void FillInsectsWinOrEqualBackPosListWithReferenceValues()
+        {
+            for (int i = 0; i < referenceInsectsWinOrEqualBack.Count; i++)
+            {
+                List<float> tempList = new List<float>();
+
+                for (int j = 0; j < referenceInsectsWinOrEqualBack[i].Insects.Count; j++)
+                {
+                    tempList.Add(referenceInsectsWinOrEqualBack[i].Insects[j].transform.localPosition.x);
+                }
+
+                xPosInsectWinOrEqualBack.Add(tempList);
+            }
+        }
+
+        private void FillInsectsLoseFrontPosListWithReferenceValues()
+        {
+            for (int i = 0; i < referenceInsectsLoseFront.Count; i++)
+            {
+                List<float> tempList = new List<float>();
+
+                for (int j = 0; j < referenceInsectsLoseFront[i].Insects.Count; j++)
+                {
+                    tempList.Add(referenceInsectsLoseFront[i].Insects[j].transform.localPosition.x);
+                }
+
+                xPosInsectLoseFront.Add(tempList);
+            }
+        }
+
+        private void FillInsectsLoseBackPosListWithReferenceValues()
+        {
+            for (int i = 0; i < referenceInsectsLoseBack.Count; i++)
+            {
+                List<float> tempList = new List<float>();
+
+                for (int j = 0; j < referenceInsectsLoseBack[i].Insects.Count; j++)
+                {
+                    tempList.Add(referenceInsectsLoseBack[i].Insects[j].transform.localPosition.x);
+                }
+
+                xPosInsectLoseBack.Add(tempList);
+            }
+        }
+
+        private void ActivateInsectsGameObjectAccordingToScoreValues()
+        {
+            for (int i = 0; i < scoreList.Count; i++)
+            {
+                if (scoreList[i].EarnedPoint == 0) // lose
+                {
+                    insectWinOrEqualBack[scoreList[i].WinnerIndex].GetComponent<Renderer>().enabled = true;
+                    insectLoseFront[scoreList[i].LooserIndex].GetComponent<Renderer>().enabled = true;
+
+                    insectWinOrEqualBack[scoreList[i].WinnerIndex].transform.localPosition = new Vector2(PositionConverter.ConvertedX(xPosInsectWinOrEqualBack[scoreList[i].WinnerIndex][i]), insectWinOrEqualBack[scoreList[i].WinnerIndex].transform.localPosition.y);
+                    insectLoseFront[scoreList[i].LooserIndex].transform.localPosition = new Vector2(PositionConverter.ConvertedX(xPosInsectLoseFront[scoreList[i].LooserIndex][i]), insectLoseFront[scoreList[i].LooserIndex].transform.localPosition.y);
+                }
+
+                else if (scoreList[i].EarnedPoint == 2) // winner
+                {
+                    insectLoseBack[scoreList[i].LooserIndex].GetComponent<Renderer>().enabled = true;
+                    insectWinOrEqualFront[scoreList[i].WinnerIndex].GetComponent<Renderer>().enabled = true;
+
+                    insectLoseBack[scoreList[i].LooserIndex].transform.localPosition = new Vector2(PositionConverter.ConvertedX(xPosInsectLoseBack[scoreList[i].LooserIndex][i]), insectLoseBack[scoreList[i].LooserIndex].transform.localPosition.y);
+                    insectWinOrEqualFront[scoreList[i].WinnerIndex].transform.localPosition = new Vector2(PositionConverter.ConvertedX(xPosInsectWinOrEqualFront[scoreList[i].WinnerIndex][i]), insectWinOrEqualFront[scoreList[i].WinnerIndex].transform.localPosition.y);
+                }
+
+                else // equal
+                {
+                    insectWinOrEqualBack[scoreList[i].WinnerIndex].GetComponent<Renderer>().enabled = true;
+                    insectWinOrEqualFront[scoreList[i].WinnerIndex].GetComponent<Renderer>().enabled = true;
+
+                    insectWinOrEqualBack[scoreList[i].WinnerIndex].transform.localPosition = new Vector2(PositionConverter.ConvertedX(xPosInsectWinOrEqualBack[scoreList[i].WinnerIndex][i]), insectWinOrEqualBack[scoreList[i].WinnerIndex].transform.localPosition.y);
+                    insectWinOrEqualFront[scoreList[i].WinnerIndex].transform.localPosition = new Vector2(PositionConverter.ConvertedX(xPosInsectWinOrEqualFront[scoreList[i].WinnerIndex][i]), insectWinOrEqualFront[scoreList[i].WinnerIndex].transform.localPosition.y);
+                }
+            }
+        }
+
+        private void PlayScore1Anim()
+        {
+            scoreNumber1Anim.Play("1-" + scoreList[0].EarnedPoint);
         }
     }
 

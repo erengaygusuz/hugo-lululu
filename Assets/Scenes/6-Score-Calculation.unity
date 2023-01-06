@@ -1947,7 +1947,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 309638099}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7985628, y: -0.019493014, z: 172.27629}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1208562783}
@@ -8113,7 +8113,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1371760972}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7406087, y: 0.6039799, z: 185.57419}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8132,25 +8132,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreNumber1Anim: {fileID: 1095867465}
-  inspectWinOrEqualFront:
+  insectWinOrEqualFront:
   - {fileID: 185403267}
   - {fileID: 435881255}
   - {fileID: 1007655800}
   - {fileID: 1690904171}
   - {fileID: 1378101321}
-  inspectWinOrEqualBack:
+  insectWinOrEqualBack:
   - {fileID: 1402367026}
   - {fileID: 374423061}
   - {fileID: 902701601}
   - {fileID: 2061652006}
   - {fileID: 826824942}
-  inspectLoseFront:
+  insectLoseFront:
   - {fileID: 500227506}
   - {fileID: 438999522}
   - {fileID: 1125120421}
   - {fileID: 798678412}
   - {fileID: 1070484451}
-  inspectLoseBack:
+  insectLoseBack:
   - {fileID: 1994022533}
   - {fileID: 1937378545}
   - {fileID: 1616548056}
