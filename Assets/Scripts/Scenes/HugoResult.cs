@@ -12,10 +12,12 @@ namespace FTRGames.HugoLuLuLu.Scenes
         [SerializeField]
         private List<AudioSource> goodResultSOs, badResultSOs;
 
-        [SerializeField]
-        private GameObject gameOverPanel;
-
         private void Start()
+        {
+            CalculateResultAndShowAnim();
+        }
+
+        private void CalculateResultAndShowAnim()
         {
             if (ScoreCalculation.totalScore >= 5)
             {
