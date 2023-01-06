@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace FTRGames.HugoLuLuLu.System
+namespace FTRGames.HugoLuLuLu.Core
 {
     public class Settings : MonoBehaviour
     {

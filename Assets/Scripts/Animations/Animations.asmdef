@@ -1,0 +1,17 @@
+{
+    "name": "Animations",
+    "rootNamespace": "",
+    "references": [
+        "Scenes",
+        "Models"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

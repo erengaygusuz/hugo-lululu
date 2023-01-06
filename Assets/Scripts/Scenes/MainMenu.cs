@@ -12,7 +12,11 @@ namespace FTRGames.HugoLuLuLu.Scenes
 
         public void QuitBtnClick()
         {
+#if UNITY_WEBGL
+
+#else
             Application.Quit();
+#endif
         }
     }
 }
