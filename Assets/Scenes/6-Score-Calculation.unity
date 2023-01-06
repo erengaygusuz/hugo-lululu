@@ -1044,8 +1044,8 @@ GameObject:
   - component: {fileID: 186709597}
   - component: {fileID: 186709596}
   - component: {fileID: 186709595}
-  - component: {fileID: 186709598}
   - component: {fileID: 186709599}
+  - component: {fileID: 186709598}
   m_Layer: 0
   m_Name: LastScore
   m_TagString: Untagged
@@ -1146,9 +1146,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 186709594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00796f3fe0b0a8e449a19d019ff8acb5, type: 3}
+  m_Script: {fileID: 11500000, guid: 85b317f0563fe4247aba37633f1cfbbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animators: []
+  totalScoreAnim: {fileID: 0}
 --- !u!114 &186709599
 MonoBehaviour:
   m_ObjectHideFlags: 0

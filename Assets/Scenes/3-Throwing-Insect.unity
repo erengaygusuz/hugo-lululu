@@ -262,7 +262,6 @@ GameObject:
   - component: {fileID: 150589034}
   - component: {fileID: 150589033}
   - component: {fileID: 150589036}
-  - component: {fileID: 150589037}
   - component: {fileID: 150589038}
   m_Layer: 0
   m_Name: NerdThrowSprite
@@ -369,18 +368,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSprite: {fileID: 1076519662}
   baseBackSprite: {fileID: 380962510}
---- !u!114 &150589037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 150589032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b333c1de70af924299700cb55cde912, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   backAnim: {fileID: 1025227067}
   jeanPaulSOs:
   - {fileID: 1666579516}
@@ -1745,7 +1732,6 @@ GameObject:
   - component: {fileID: 707040161}
   - component: {fileID: 707040160}
   - component: {fileID: 707040163}
-  - component: {fileID: 707040164}
   - component: {fileID: 707040165}
   m_Layer: 0
   m_Name: AntsThrowSprite
@@ -1852,18 +1838,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSprite: {fileID: 1900983785}
   baseBackSprite: {fileID: 1156941316}
---- !u!114 &707040164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 707040159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b333c1de70af924299700cb55cde912, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   backAnim: {fileID: 1025227067}
   jeanPaulSOs:
   - {fileID: 1666579516}
@@ -2324,7 +2298,6 @@ GameObject:
   - component: {fileID: 831261710}
   - component: {fileID: 831261712}
   - component: {fileID: 831261713}
-  - component: {fileID: 831261714}
   - component: {fileID: 831261715}
   m_Layer: 0
   m_Name: SnailThrowSprite
@@ -2431,18 +2404,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSprite: {fileID: 661100637}
   baseBackSprite: {fileID: 1112086567}
---- !u!114 &831261714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 831261709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b333c1de70af924299700cb55cde912, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   backAnim: {fileID: 1025227067}
   jeanPaulSOs:
   - {fileID: 1666579516}
@@ -2975,7 +2936,6 @@ GameObject:
   - component: {fileID: 970969127}
   - component: {fileID: 970969126}
   - component: {fileID: 970969129}
-  - component: {fileID: 970969130}
   - component: {fileID: 970969131}
   m_Layer: 0
   m_Name: SumoThrowSprite
@@ -3082,18 +3042,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSprite: {fileID: 1751545670}
   baseBackSprite: {fileID: 796255202}
---- !u!114 &970969130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 970969125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b333c1de70af924299700cb55cde912, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   backAnim: {fileID: 1025227067}
   jeanPaulSOs:
   - {fileID: 1666579516}
@@ -6102,7 +6050,6 @@ GameObject:
   - component: {fileID: 1908492449}
   - component: {fileID: 1908492448}
   - component: {fileID: 1908492451}
-  - component: {fileID: 1908492452}
   - component: {fileID: 1908492453}
   m_Layer: 0
   m_Name: MosquitoThrowSprite
@@ -6209,18 +6156,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSprite: {fileID: 776757532}
   baseBackSprite: {fileID: 1242910554}
---- !u!114 &1908492452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1908492447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b333c1de70af924299700cb55cde912, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   backAnim: {fileID: 1025227067}
   jeanPaulSOs:
   - {fileID: 1666579516}

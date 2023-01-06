@@ -3,15 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace FTRGames.HugoLuLuLu
+namespace FTRGames.HugoLuLuLu.Animations
 {
-    public class GoToNextScene : MonoBehaviour
+    public class ThrowingInsectAnimEvent : MonoBehaviour
     {
+        [SerializeField]
+        private SpriteRenderer baseSprite, baseBackSprite;
+
         [SerializeField]
         private Animator backAnim;
 
         [SerializeField]
         private List<AudioSource> jeanPaulSOs;
+
+        public void DeactivateSprites()
+        {
+            baseSprite.enabled = false;
+        }
+
+        public void ActivateSprites()
+        {
+            baseBackSprite.enabled = true;
+        }
 
         public void LoadNextScene()
         {

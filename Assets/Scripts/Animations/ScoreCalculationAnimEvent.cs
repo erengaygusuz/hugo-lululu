@@ -2,10 +2,11 @@ using FTRGames.HugoLuLuLu.Scenes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-namespace FTRGames.HugoLuLuLu
+namespace FTRGames.HugoLuLuLu.Animations
 {
-    public class PlayScoreNumberAnim : MonoBehaviour
+    public class ScoreCalculationAnimEvent : MonoBehaviour
     {
         [SerializeField]
         private List<Animator> animators;
@@ -42,6 +43,11 @@ namespace FTRGames.HugoLuLuLu
             totalScoreAnim.Play(ScoreCalculation.totalScore.ToString());
 
             ScoreCalculation.totalScoreSOStatic.Play();
+        }
+
+        public void OpenScene()
+        {
+            SceneManager.LoadScene("7-Hugo-Result");
         }
     }
 }

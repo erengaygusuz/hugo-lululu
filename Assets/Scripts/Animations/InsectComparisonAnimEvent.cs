@@ -2,9 +2,9 @@ using FTRGames.HugoLuLuLu.Scenes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace FTRGames.HugoLuLuLu
+namespace FTRGames.HugoLuLuLu.Animations
 {
-    public class StartInsectFight : MonoBehaviour
+    public class InsectComparisonAnimEvent : MonoBehaviour
     {
         public void StartFight()
         {

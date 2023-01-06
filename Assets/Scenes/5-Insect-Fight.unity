@@ -986,8 +986,8 @@ GameObject:
   - component: {fileID: 1025227066}
   - component: {fileID: 1025227065}
   - component: {fileID: 1025227067}
-  - component: {fileID: 1025227068}
   - component: {fileID: 1025227069}
+  - component: {fileID: 1025227068}
   m_Layer: 0
   m_Name: Fights
   m_TagString: Untagged
@@ -1088,7 +1088,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1025227064}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d13725de1fd9e94c84f53646653a0cb, type: 3}
+  m_Script: {fileID: 11500000, guid: d48c74b1471eaa8449a55f6514ce2661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1025227069
