@@ -54,11 +54,6 @@ I love every game of Hugo and decided to create one of the game in Hugo - Jungle
   * Nerd beats Ant.
   * Nerd beats Sumo.
 
-## Related Links
-
-* Watch Gameplay Video on Youtube: https://youtu.be/a1xwodFi61w
-* Play Game on Unity Play: https://play.unity.com/mg/other/hugolululu-v1-2-9
-
 ## License
 
 The MIT License (MIT)
